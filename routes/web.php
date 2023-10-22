@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', [App\Http\Controllers\ViewController::class, 'index']);
+
+Route::prefix('apar')->group(function () {
+    Route::get('/', [App\Http\Controllers\ViewController::class, 'index']);
+    Route::get('/create', [App\Http\Controllers\ViewController::class, 'create']);
+    Route::get('/detail/{id}', [App\Http\Controllers\ViewController::class, 'detail']);
 });
