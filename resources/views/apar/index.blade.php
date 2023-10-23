@@ -4,8 +4,14 @@ Kelola Apar
 @endsection
 @section("content")
 <div class="card col-md-12 mt-5">
+
+    
+
     <div class="card-header">Kelola Apar</div>
     <div class="card-body">
+        <a href="{{ url('apar/create') }}" class="btn btn-primary mb-3">
+            Tambah Data
+        </a>
         <table class="table table-striped" id="datatable">
             <thead>
                 <tr>
@@ -26,6 +32,7 @@ Kelola Apar
         </table>
     </div>
 </div>
+
 @endsection
 
 @push("scripts")
@@ -82,8 +89,37 @@ $(function() {
                 orderable: false,
                 searchable: false
             },
-        ]
+        ],
+        createdRow: function(row, data, dataIndex) {
+            if (data["status_kadaluarsa"] == "1") {
+                $(row).css("background-color", "Orange");
+                $(row).addClass("warning");
+            }
+        },
     });
 });
+
+function hapus(apar_id) {
+    Swal.fire({
+        title: 'Konfirmasi',
+        text: "Apakah yakin menghapus data ini",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                url: "{{ url('api/apar/delete') }}" + "/" + apar_id,
+                type: "DELETE",
+                success: function(res) {
+                    Swal.fire('Berhasil', res.message, 'success');
+                    $('#datatable').DataTable().ajax.reload();
+                }
+            })
+        }
+    })
+}
 </script>
 @endpush
