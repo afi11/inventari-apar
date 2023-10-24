@@ -83,24 +83,26 @@ Kelola Apar
         <a href="{{ url('apar/create') }}" class="btn btn-primary mb-3">
             Tambah Data
         </a>
-        <table class="table table-striped" id="datatable">
-            <thead>
-                <tr>
-                    <th>No</th>
-                    <th>Lokasi</th>
-                    <th>Kondisi</th>
-                    <th>Segitiga Apar</th>
-                    <th>Kartu Pemeliharaan</th>
-                    <th>Petunjuk Penggunaan</th>
-                    <th>Jenis</th>
-                    <th>Ukuran</th>
-                    <th>Kadaluarsa</th>
-                    <th>Keterangan</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
+        <div class="table-responsive">
+            <table class="table table-striped" id="datatable">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Lokasi</th>
+                        <th>Kondisi</th>
+                        <th>Segitiga Apar</th>
+                        <th>Kartu Pemeliharaan</th>
+                        <th>Petunjuk Penggunaan</th>
+                        <th>Jenis</th>
+                        <th>Ukuran</th>
+                        <th>Kadaluarsa</th>
+                        <th>Keterangan</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
     </div>
 </div>
 
@@ -113,7 +115,7 @@ $(function() {
         processing: true,
         serverSide: true,
         paging: true,
-        ajax: "{{ url('api/apar/datatable') }}",
+        ajax: "{{ url('apar/datatable') }}",
         columns: [{
                 data: 'DT_RowIndex',
                 name: 'DT_RowIndex'

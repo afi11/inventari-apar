@@ -47,6 +47,10 @@ class CRUDController extends Controller
                     }
                     return $status;
                 })
+                ->addColumn('tanggal_kadaluarsa', function($row){
+                    return Carbon::parse($row->tanggal_kadaluarsa)->format("d/m/Y");
+                })
+                
                 ->addColumn('status_kadaluarsa', function($row){
                     $status = "";
                     $tglSekarang = strtotime(Carbon::now()->format("Y-m-d"));
@@ -63,7 +67,8 @@ class CRUDController extends Controller
                     $actionBtn .= '<button onclick="hapus('.$row->id.')" class="btn btn-danger btn-sm">Hapus</a>';
                     return $actionBtn;
                 })
-                ->rawColumns(['action', 'petunjuk_penggunaan', 'kartu_pemeliharaan', 'segitiga_apar', 'kondisi', 'status_kadaluarsa'])
+                ->rawColumns(['action', 'petunjuk_penggunaan', 'kartu_pemeliharaan', 'segitiga_apar', 'kondisi', 'status_kadaluarsa',
+                    'tanggal_kadaluarsa'])
                 ->make(true);
         }
     }
@@ -123,7 +128,7 @@ class CRUDController extends Controller
         $apar->tanggal_kadaluarsa = $request->tanggal_kadaluarsa;
         $apar->keterangan = $request->keterangan;
         $apar->save();
-        return redirect("/")->with("success", "Berhasil menambahkan data apar");
+        return redirect("/")->with("changed_record", "Berhasil Menambahkan Data Apar");
     }
 
     public function update(Request $request, $id)
@@ -139,7 +144,7 @@ class CRUDController extends Controller
         $apar->tanggal_kadaluarsa = $request->tanggal_kadaluarsa;
         $apar->keterangan = $request->keterangan;
         $apar->save();
-        return redirect("/")->with("success", "Berhasil mengubah data apar");
+        return redirect("/")->with("changed_record", "Berhasil Mengubah Data Apar");
     }
 
     public function delete($id)

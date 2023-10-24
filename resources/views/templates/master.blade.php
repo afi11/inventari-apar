@@ -47,6 +47,13 @@
     });
     </script>
 
+    <?php
+    if(Session::has('changed_record')){ ?>
+    <script>
+    Swal.fire('Berhasil', '{{ Session::get("changed_record") }}', 'success')
+    </script>
+    <?php } ?>
+
     @stack("scripts")
 </body>
 

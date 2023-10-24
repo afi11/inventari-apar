@@ -19,4 +19,9 @@ Route::prefix('apar')->group(function () {
     Route::get('/', [App\Http\Controllers\ViewController::class, 'index']);
     Route::get('/create', [App\Http\Controllers\ViewController::class, 'create']);
     Route::get('/detail/{id}', [App\Http\Controllers\ViewController::class, 'detail']);
+
+    Route::get('/datatable', [App\Http\Controllers\CRUDController::class, 'getDataTable']);
+    Route::post('/store', [App\Http\Controllers\CRUDController::class, 'store']);
+    Route::put('/update/{id}', [App\Http\Controllers\CRUDController::class, 'update']);
+    Route::delete('/delete/{id}', [App\Http\Controllers\CRUDController::class, 'delete']);
 });

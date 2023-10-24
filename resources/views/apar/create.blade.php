@@ -6,7 +6,7 @@ Tambah Apar
 <div class="card col-md-12 mt-5">
     <div class="card-header">Tambah Apar</div>
     <div class="card-body">
-        <form method="POST" action="{{ url('api/apar/store') }}">
+        <form method="POST" action="{{ url('apar/store') }}">
             @csrf
             <div class="row mb-2">
                 <div class="form-group col-md-6">
@@ -19,7 +19,7 @@ Tambah Apar
                 </div>
                 <div class="form-group col-md-6">
                     <label>Kondisi</label>
-                    <textarea class="form-control" name="kondisi"></textarea>
+                    <textarea class="form-control" name="kondisi" rows="5"></textarea>
                 </div>
             </div>
             <div class="row mb-2">

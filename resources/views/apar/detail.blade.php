@@ -6,7 +6,7 @@ Detail Apar
 <div class="card col-md-12 mt-5">
     <div class="card-header">Detail Apar</div>
     <div class="card-body">
-        <form method="POST" action="{{ url('api/apar/update', $apar->id) }}">
+        <form method="POST" action="{{ url('apar/update', $apar->id) }}">
             {{ method_field("PUT") }}
             @csrf
             <div class="row mb-2">
@@ -21,7 +21,7 @@ Detail Apar
                 </div>
                 <div class="form-group col-md-6">
                     <label>Kondisi</label>
-                    <textarea class="form-control" name="kondisi"><?= str_replace("<br />", "", $apar->kondisi) ?></textarea>
+                    <textarea class="form-control" name="kondisi" rows="5"><?= str_replace("<br />", "", $apar->kondisi) ?></textarea>
                 </div>
             </div>
             <div class="row mb-2">
