@@ -3,10 +3,81 @@
 Kelola Apar
 @endsection
 @section("content")
+<div class="row mt-5">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Segitiga Apar</h5>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <td>Ada</td>
+                            <td>Tidak Ada</td>
+                            <td>Total</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ $countPunyaSegitiga }}</td>
+                            <td>{{ $countTakPunyaSegitiga }}</td>
+                            <td>{{ $countPunyaSegitiga + $countTakPunyaSegitiga  }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!--  -->
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Kartu Pemelirahan</h5>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <td>Ada</td>
+                            <td>Tidak Ada</td>
+                            <td>Total</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ $countPunyaKartuPemeliharaan }}</td>
+                            <td>{{ $countTakPunyaKartuPemeliharaan }}</td>
+                            <td>{{ $countPunyaKartuPemeliharaan + $countTakPunyaKartuPemeliharaan  }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!--  -->
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Petunjuk Penggunaan</h5>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <td>Ada</td>
+                            <td>Tidak Ada</td>
+                            <td>Total</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ $countPunyaPetunjuk }}</td>
+                            <td>{{ $countTakPunyaPetunjuk }}</td>
+                            <td>{{ $countPunyaPetunjuk + $countTakPunyaPetunjuk  }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!--  -->
 <div class="card col-md-12 mt-5">
-
-    
-
     <div class="card-header">Kelola Apar</div>
     <div class="card-body">
         <a href="{{ url('apar/create') }}" class="btn btn-primary mb-3">
